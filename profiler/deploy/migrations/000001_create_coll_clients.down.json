@@ -1,0 +1,15 @@
+[
+	{
+		"delete": "clients",
+		"deletes": [{ "q": {}, "limit": 0 } ],
+		"writeConcern": { "w": "majority", "wtimeout": 5000 }
+	},
+  {
+    "dropIndexes": "clients",
+    "index": "clientid_sort_by_asc_created"
+  },
+  {
+    "dropIndexes": "clients",
+    "index": "unique_clientid"
+  }
+]

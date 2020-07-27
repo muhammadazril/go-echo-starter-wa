@@ -1,0 +1,31 @@
+[
+	{
+		"createIndexes": "clients",
+		"indexes": [
+			{
+				"key": {
+					"clientid": 1,
+					"created_at": -1
+				},
+				"name": "clientid_sort_by_asc_created",
+				"background": true
+			},
+			{
+				"key": {
+					"clientid": 1
+				},
+				"name": "unique_clientid",
+				"unique": true,
+				"background": true
+			}
+		]
+	},
+	{
+		"insert": "clients",
+		"documents": [
+				{"clientid": "c6bb49e1-549b-4175-a586-47d0dc6470a3", "name": "Client 1", "apikey": "$2a$10$DgjWvLIi31CQRd0yfBkZheCYM65xqpgEVtvOSDkj1hTC1hlqrsVHm", "active": true, "created_at": "2020-05-28T13:36:00Z", "updated_at": "2020-05-28T13:36:00Z", "deleted_at": ""},
+				{"clientid": "033d0a7b-0a30-48f0-b21b-02d8edbb519f", "name": "Client 2", "apikey": "$2a$10$E2xhBEofxyA8wJNiSr2TE.51YL4BzFYuAmeQQKDQMCUjphyH2zk6.", "active": true, "created_at": "2020-05-28T13:36:00Z", "updated_at": "2020-05-28T13:36:00Z", "deleted_at": ""},
+				{"clientid": "cd0e588b-33aa-473b-9e9a-8e7333878110", "name": "Client 3", "apikey": "$2a$10$MBZRqIuW/QdyyUdbaKE9XuLQWLHE4.SyDM8LtUsd9f8EdelwNLC4a", "active": false, "created_at": "2020-05-28T13:36:00Z", "updated_at": "2020-05-28T13:36:00Z", "deleted_at": ""}
+		]
+	}
+]

@@ -1,0 +1,32 @@
+app:
+  name: profiler
+  debug: true
+  maintenance: false
+  timezone: Asia/Jakarta
+  port: 8098
+  jwt:
+    secret: bleketekblukutuk
+    lifetime: 60
+  scheduler:
+    payout_last: 24
+  activation_link:
+    lifetime: 120             # in minutes
+
+redis:
+  password: 
+  host: redis_server
+  port: 6379
+  database: 0
+
+mongodb:
+  password:
+  username:
+  host: mongodb_server
+  port: 27017
+  database: profiler
+  replica_set: rs0
+
+kafka:
+  hosts: 0.0.0.0:9092
+  username: kafkacl
+  password: masukaja
