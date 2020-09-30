@@ -4,6 +4,8 @@ import (
 	"fmt"
 
 	"github.com/rimantoro/event_driven/profiler/entities/client"
+	"github.com/rimantoro/event_driven/profiler/entities/gowa"
+	"github.com/rimantoro/event_driven/profiler/entities/joblog"
 	"github.com/rimantoro/event_driven/profiler/shared/bootstrap"
 )
 
@@ -44,4 +46,6 @@ CommitID           %s
 
 type AllUsecaseStruct struct {
 	ClientUsecase client.Usecase
+	GowaUsecase   gowa.Usecase
+	JoblogUcase   joblog.Usecase
 }

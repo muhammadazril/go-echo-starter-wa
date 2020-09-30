@@ -107,11 +107,13 @@ func NewClient(conf *viper.Viper) (Client, error) {
 	host := conf.GetString(models.ConfigMongoHost)
 	port := conf.GetInt(models.ConfigMongoPort)
 	database := conf.GetString(models.ConfigMongoDatabase)
-	replicaset := conf.GetString(models.ConfigMongoReplica)
+	// replicaset := conf.GetString(models.ConfigMongoReplica)
 
-	mongodbURI := fmt.Sprintf("mongodb://%s:%s@%s:%d/%s?replicaSet=%s&connect=direct", user, password, host, port, database, replicaset)
+	mongodbURI := fmt.Sprintf("mongodb://%s:%s@%s:%d/%s", user, password, host, port, database)
+	// mongodbURI := fmt.Sprintf("mongodb://%s:%s@%s:%d/%s?replicaSet=%s&connect=direct", user, password, host, port, database, replicaset)
 	if user == "" || password == "" {
-		mongodbURI = fmt.Sprintf("mongodb://%s:%d/%s?replicaSet=%s&connect=direct", host, port, database, replicaset)
+		mongodbURI = fmt.Sprintf("mongodb://%s:%d/%s", host, port, database)
+		// mongodbURI = fmt.Sprintf("mongodb://%s:%d/%s?replicaSet=%s&connect=direct", host, port, database, replicaset)
 	}
 
 	customValues := []interface{}{

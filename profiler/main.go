@@ -17,6 +17,8 @@ func main() {
 			log.Print("Stream producer here")
 		case "restapi":
 			svc.StartRestAPI()
+		case "worker":
+			svc.WorkerStart()
 		case "cli":
 			svc.DoCliProcess(args)
 		case "migrate":

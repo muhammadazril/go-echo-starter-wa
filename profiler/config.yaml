@@ -12,21 +12,52 @@ app:
   activation_link:
     lifetime: 120             # in minutes
 
+# redis:
+#   password: 
+#   host: redis_server
+#   port: 6379
+#   database: 0
+
 redis:
   password: 
-  host: redis_server
+  host: 127.0.0.1
   port: 6379
   database: 0
+
+# redis:
+#   password: 
+#   host: 127.0.0.1
+#   port: 6379
+#   database: 0
+
+# mongodb:
+#   password:
+#   username:
+#   host: mongodb_server
+#   port: 27017
+#   database: profiler
+#   replica_set: rs0
 
 mongodb:
   password:
   username:
-  host: mongodb_server
+  host: localhost
   port: 27017
-  database: profiler
+  database: gowa
   replica_set: rs0
+
+# mongo: 
+#   host: localhost
+#   port: 27017
+#   user: 
+#   pass: 
+#   name: gowa
 
 kafka:
   hosts: 0.0.0.0:9092
   username: kafkacl
   password: masukaja
+
+wa:
+  # session_path: /Users/muhammadazril/Downloads/gitlab.alterra.id/go-echo-starter/profiler/
+  session_path: /Users/urname/go-echo-starter/profiler/

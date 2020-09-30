@@ -10,11 +10,18 @@ import (
 	"github.com/facebookgo/grace/gracehttp"
 	"github.com/labstack/echo/v4"
 	"github.com/rimantoro/event_driven/profiler/shared/bootstrap"
+	"github.com/rimantoro/event_driven/profiler/shared/models"
 	"go.uber.org/zap"
 
 	_clientHttp "github.com/rimantoro/event_driven/profiler/entities/client/delivery/http"
 	_clientRepo "github.com/rimantoro/event_driven/profiler/entities/client/repository"
 	_clientUcase "github.com/rimantoro/event_driven/profiler/entities/client/usecase"
+	_gowaHttp "github.com/rimantoro/event_driven/profiler/entities/gowa/delivery/http"
+	_gowaRepo "github.com/rimantoro/event_driven/profiler/entities/gowa/repository"
+	_gowaUcase "github.com/rimantoro/event_driven/profiler/entities/gowa/usecase"
+	_joblogHttp "github.com/rimantoro/event_driven/profiler/entities/joblog/delivery/http"
+	_joblogRepo "github.com/rimantoro/event_driven/profiler/entities/joblog/repository"
+	_joblogUcase "github.com/rimantoro/event_driven/profiler/entities/joblog/usecase"
 )
 
 func StartRestAPI() {
@@ -39,9 +46,15 @@ func StartRestAPI() {
 
 	clientRepo := _clientRepo.NewClientRepository()
 	clientUcase := _clientUcase.NewUsecase(clientRepo, timeoutContext)
+	gowaRepo := _gowaRepo.NewWaRepository()
+	gowaUcase := _gowaUcase.NewUsecase(gowaRepo, timeoutContext)
+	joblogRepo := _joblogRepo.NewMongoRepository(bootstrap.App.Mongo.Database(bootstrap.App.Config.GetString(models.ConfigMongoDatabase)))
+	joblogUcase := _joblogUcase.NewUsecase(joblogRepo, timeoutContext)
 
 	usecase := AllUsecaseStruct{
 		ClientUsecase: clientUcase,
+		GowaUsecase:   gowaUcase,
+		JoblogUcase:   joblogUcase,
 	}
 
 	//======= INITIATE ECHO =========
@@ -55,6 +68,9 @@ func StartRestAPI() {
 	//======= INITIATE HTTP HANDLER FOR EACH ENTITIES =========
 
 	_clientHttp.NewHttpHandler(e, usecase.ClientUsecase)
+	_gowaHttp.NewHttpHandler(e, usecase.GowaUsecase)
+	// _joblogHttp.NewHttpHandler(e, usecase.JoblogUcase)
+	_joblogHttp.NewJobLogHandler(e, usecase.JoblogUcase)
 
 	//======= GRACEFULL SHUTDOWN FOR ECHO HTTP =========
 
