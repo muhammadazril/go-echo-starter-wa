@@ -24,11 +24,16 @@ This is some place you want to store your user/client profile, validate it if th
 ## Run the app :
 To start apps run API and worker in terminal.
 Then hit url POST wa/messagejob with json body
+
 {
 "message":"type your message",
 "number":"+6281234567890"
 }
+
 Worker will show QR code in terminal for the first time session to be stored.
+
 ![QR code](https://github.com/muhammadazril/go-echo-starter-wa/raw/feature-whatssapp/QRcode.png)
+
 Scan the QR code in your Whatsapp application
+
 ![Scan the QR code](https://github.com/muhammadazril/go-echo-starter-wa/raw/feature-whatssapp/Scan_QR_code.jpg)
