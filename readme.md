@@ -21,19 +21,14 @@ This is some place you want to store your user/client profile, validate it if th
         in config file can set path the whatsapp session to be placed.
     ```
 
-    ## Run the app
-        To start apps run API and worker in terminal. <br>
-        Then hit url POST wa/messagejob with json body <br>
-        {
-        "message":"type your message",
-        "number":"+6281234567890"
-        }
-        <br>
-        Worker will show QR code in terminal for the first time session to be stored.
-        <br>
-        ![QR code](https://github.com/muhammadazril/go-echo-starter-wa/QRcode.png)
-        <br>
-        Scan the QR code in your Whatsapp application
-        <br>
-        ![Scan the QR code](https://github.com/muhammadazril/go-echo-starter-wa/Scan_QR_code.jpg)
-        <br>
+## Run the app :
+To start apps run API and worker in terminal.
+Then hit url POST wa/messagejob with json body
+{
+"message":"type your message",
+"number":"+6281234567890"
+}
+Worker will show QR code in terminal for the first time session to be stored.
+![QR code](https://github.com/muhammadazril/go-echo-starter-wa/QRcode.png)
+Scan the QR code in your Whatsapp application
+![Scan the QR code](https://github.com/muhammadazril/go-echo-starter-wa/Scan_QR_code.jpg)
